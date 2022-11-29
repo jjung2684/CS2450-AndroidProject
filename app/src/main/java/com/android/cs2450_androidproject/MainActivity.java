@@ -2,10 +2,12 @@ package com.android.cs2450_androidproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.jazz_music);
 
     }
+    public void PlayBackgroundSound(View view) {
+        Intent intent = new Intent(MainActivity.this, BackgroundSoundService.class);
+        startService(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.pauseButton) {
-            pauseMusic();
+            disableMusic();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -68,15 +74,43 @@ public class MainActivity extends AppCompatActivity {
 
     private void playMusic() {
 
-        mediaPlayer.start();
-        mediaPlayer.setLooping(true);
+        Intent startServiceIntent = new Intent(MainActivity.this, BackgroundSoundService.class);
+        startService(startServiceIntent);
         Toast.makeText(this, "Playing Background Music", Toast.LENGTH_SHORT).show();
 
     }
 
-    private void pauseMusic() {
-        Toast.makeText(this, "Pausing Background Music", Toast.LENGTH_SHORT).show();
-        mediaPlayer.pause();
+    private void disableMusic() {
+
+        stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
+        Toast.makeText(this, "Disabling Background Music", Toast.LENGTH_SHORT).show();
+
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        outState.putInt("position", mediaPlayer.getCurrentPosition());
+        mediaPlayer.pause();
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        int pos = savedInstanceState.getInt("position");
+        mediaPlayer.seekTo(pos);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+
+
+
 
 }

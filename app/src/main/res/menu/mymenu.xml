@@ -10,6 +10,6 @@
         android:id="@+id/pauseButton"
         android:title=""
         app:showAsAction="always"
-        android:icon="@drawable/pause" />
+        android:icon="@drawable/stop" />
 
 </menu>
