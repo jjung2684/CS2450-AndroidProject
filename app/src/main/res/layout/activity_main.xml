@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/button2x2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 2x2"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/button3x2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 3x2"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/button4x2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 4x2"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/button5x2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 5x2"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/button6x2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 6x2"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/button7x2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 7x2"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/button4x4"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 4x4"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/button6x3"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 6x3"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/button4x5"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:text="Start a game: 4x5"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+</LinearLayout>
