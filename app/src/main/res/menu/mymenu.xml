@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/playButton"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/play" />
+
+    <item
+        android:id="@+id/pauseButton"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/pause" />
+
+</menu>
