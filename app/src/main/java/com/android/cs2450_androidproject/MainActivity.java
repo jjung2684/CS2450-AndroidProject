@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     If it's the first tile, all remaining tiles can be compared to see if there's a match.
      */
     public boolean checkFirstChoice(Button button) {
-
         for (int i = 0; i < buttonList.size(); i++) {
             if (buttonList.get(i) != button & !buttonList.get(i).getText().equals("")) {
                 System.out.println("Not first choice: ");
@@ -106,144 +105,62 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
     }
 
-    public void onButton1Click(View view) {
-
-        button1.setText(gameWords[0]);
-
-        if (checkFirstChoice(button1)) {
-            firstChoiceButton = button1;
+    private void checkForMatch(Button button) {
+        if (checkFirstChoice(button)) {
+            firstChoiceButton = button;
             System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button1.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button1);
+        } else if (button.getText().equals(firstChoiceButton.getText())) {
+            buttonList.remove(button);
             buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button1, firstChoiceButton);
+            displayWinningTiles(button, firstChoiceButton);
             System.out.println("Matching pair!");
         }
+    }
 
+    public void onButton1Click(View view) {
+        button1.setText(gameWords[0]);
+        checkForMatch(button1);
     }
 
     public void onButton2Click(View view) {
-
         button2.setText(gameWords[1]);
-
-        if (checkFirstChoice(button2)) {
-            firstChoiceButton = button2;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button2.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button2);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button2, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
-
+        checkForMatch(button2);
     }
 
     public void onButton3Click(View view) {
-
         button3.setText(gameWords[2]);
-
-        if (checkFirstChoice(button3)) {
-            firstChoiceButton = button3;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button3.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button3);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button3, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
-
+        checkForMatch(button3);
     }
 
     public void onButton4Click(View view) {
-
         button4.setText(gameWords[0]);
-
-        if (checkFirstChoice(button4)) {
-            firstChoiceButton = button1;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button4.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button4);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button4, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
-
+        checkForMatch(button4);
     }
 
     public void onButton5Click(View view) {
-
         button5.setText(gameWords[1]);
-
-        if (checkFirstChoice(button5)) {
-            firstChoiceButton = button5;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button5.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button5);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button5, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
+        checkForMatch(button5);
     }
 
     public void onButton6Click(View view) {
-
         button6.setText(gameWords[2]);
-
-        if (checkFirstChoice(button6)) {
-            firstChoiceButton = button6;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button6.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button6);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button6, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
+        checkForMatch(button6);
     }
 
     public void onButton7Click(View view) {
-
         button7.setText(gameWords[3]);
-
-        if (checkFirstChoice(button7)) {
-            firstChoiceButton = button7;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button7.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button7);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button7, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
+        checkForMatch(button7);
     }
 
     public void onButton8Click(View view) {
         button8.setText(gameWords[5]);
-
-        if (checkFirstChoice(button8)) {
-            firstChoiceButton = button8;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button8.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button8);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button8, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
+        checkForMatch(button8);
     }
 
     public void onButton9Click(View view) {
         button9.setText(gameWords[3]);
-
-        if (checkFirstChoice(button9)) {
-            firstChoiceButton = button9;
-            System.out.println("First choice: " + firstChoiceButton.getText());
-        } else if (button9.getText().equals(firstChoiceButton.getText())) {
-            buttonList.remove(button9);
-            buttonList.remove(firstChoiceButton);
-            displayWinningTiles(button9, firstChoiceButton);
-            System.out.println("Matching pair!");
-        }
+        checkForMatch(button9);
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -291,16 +208,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState)
-    {
+    protected void onSaveInstanceState(Bundle outState) {
         outState.putInt("position", mediaPlayer.getCurrentPosition());
         mediaPlayer.pause();
         super.onSaveInstanceState(outState);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState)
-    {
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
         int pos = savedInstanceState.getInt("position");
         mediaPlayer.seekTo(pos);
         super.onRestoreInstanceState(savedInstanceState);
