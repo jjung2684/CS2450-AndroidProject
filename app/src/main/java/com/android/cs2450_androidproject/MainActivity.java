@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button button1;
     Button button2;
@@ -31,25 +31,43 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
 
-    String[] gameWords = {"Panda", "Lion", "Tiger", "Bear", "Eagle", "Snake", "Cheetah", "Jaguar", "Dolphin", "Wolf"};
+    String[] gameWords = {"Panda", "Lion", "Tiger", "Bear", "Eagle", "Snake", "Cheetah",
+            "Jaguar", "Dolphin", "Wolf"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // init buttons and set listeners
         button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(this);
+
         button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(this);
+
         button3 = (Button) findViewById(R.id.button3);
+        button3.setOnClickListener(this);
+
         button4 = (Button) findViewById(R.id.button4);
+        button4.setOnClickListener(this);
+
         button5 = (Button) findViewById(R.id.button5);
+        button5.setOnClickListener(this);
+
         button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(this);
+
         button7 = (Button) findViewById(R.id.button7);
+        button7.setOnClickListener(this);
+
         button8 = (Button) findViewById(R.id.button8);
+        button8.setOnClickListener(this);
+
         button9 = (Button) findViewById(R.id.button9);
+        button9.setOnClickListener(this);
 
-        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.jazz_music);
-
+        // add buttons to button list
         buttonList = new ArrayList<>();
         buttonList.add(button1);
         buttonList.add(button2);
@@ -61,12 +79,14 @@ public class MainActivity extends AppCompatActivity {
         buttonList.add(button8);
         buttonList.add(button9);
 
+        // media player
+        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.jazz_music);
     }
 
     /*
-    If all tiles are blank, the user has not chosen any tiles yet.
-    Each time a tile is chosen it will be checked to see if it's the first tile chosen.
-    If it's the first tile, all remaining tiles can be compared to see if there's a match.
+    1. If all tiles are blank, the user has not chosen any tiles yet
+    2. Each time a tile is chosen it will be checked to see if it's the first tile chosen
+    3. If it's the first tile, all remaining tiles can be compared to see if there's a match
      */
     public boolean checkFirstChoice(Button button) {
         for (int i = 0; i < buttonList.size(); i++) {
@@ -80,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-    Users turn over two tiles and if a match is found, the tiles remain displayed.
-    All other tiles are reset to blank.
+    1. Users turn over two tiles and if a match is found, the tiles remain displayed
+    2. All other tiles are reset to blank
      */
     public void displayWinningTiles(Button button1, Button button2) {
         for (int i = 0; i < buttonList.size(); i++) {
@@ -105,6 +125,14 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
     }
 
+    /*
+    1. Checks if the button clicked is the first choice
+    2. If not, it checks to see if the button clicked matches the first choice
+    3. If there's a match it removes the 2 buttons from the button list and calls the method to
+    display only the matching tiles
+
+    Note: A "Try again" button needs to be implemented to reset the tiles if there's no match
+     */
     private void checkForMatch(Button button) {
         if (checkFirstChoice(button)) {
             firstChoiceButton = button;
@@ -117,49 +145,37 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onButton1Click(View view) {
-        button1.setText(gameWords[0]);
-        checkForMatch(button1);
-    }
-
-    public void onButton2Click(View view) {
-        button2.setText(gameWords[1]);
-        checkForMatch(button2);
-    }
-
-    public void onButton3Click(View view) {
-        button3.setText(gameWords[2]);
-        checkForMatch(button3);
-    }
-
-    public void onButton4Click(View view) {
-        button4.setText(gameWords[0]);
-        checkForMatch(button4);
-    }
-
-    public void onButton5Click(View view) {
-        button5.setText(gameWords[1]);
-        checkForMatch(button5);
-    }
-
-    public void onButton6Click(View view) {
-        button6.setText(gameWords[2]);
-        checkForMatch(button6);
-    }
-
-    public void onButton7Click(View view) {
-        button7.setText(gameWords[3]);
-        checkForMatch(button7);
-    }
-
-    public void onButton8Click(View view) {
-        button8.setText(gameWords[5]);
-        checkForMatch(button8);
-    }
-
-    public void onButton9Click(View view) {
-        button9.setText(gameWords[3]);
-        checkForMatch(button9);
+    // on click method for buttons
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.button1) {
+            button1.setText(gameWords[0]);
+            checkForMatch(button1);
+        } else if (view.getId() == R.id.button2) {
+            button2.setText(gameWords[1]);
+            checkForMatch(button2);
+        } else if (view.getId() == R.id.button3) {
+            button3.setText(gameWords[2]);
+            checkForMatch(button3);
+        } else if (view.getId() == R.id.button4) {
+            button4.setText(gameWords[0]);
+            checkForMatch(button4);
+        } else if (view.getId() == R.id.button5) {
+            button5.setText(gameWords[1]);
+            checkForMatch(button5);
+        } else if (view.getId() == R.id.button6) {
+            button6.setText(gameWords[2]);
+            checkForMatch(button6);
+        } else if (view.getId() == R.id.button7) {
+            button7.setText(gameWords[3]);
+            checkForMatch(button7);
+        } else if (view.getId() == R.id.button8) {
+            button8.setText(gameWords[5]);
+            checkForMatch(button8);
+        } else if (view.getId() == R.id.button9) {
+            button9.setText(gameWords[3]);
+            checkForMatch(button9);
+        }
     }
 
     @Override
@@ -220,9 +236,5 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.seekTo(pos);
         super.onRestoreInstanceState(savedInstanceState);
     }
-
-
-
-
 
 }
