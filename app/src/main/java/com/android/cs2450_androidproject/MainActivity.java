@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button7;
     Button button8;
     Button button9;
+    Button button10;
+    Button button11;
+    Button button12;
 
     Button firstChoiceButton;
 
@@ -67,6 +70,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button9 = (Button) findViewById(R.id.button9);
         button9.setOnClickListener(this);
 
+        button10 = (Button) findViewById(R.id.button10);
+        button10.setOnClickListener(this);
+
+        button11 = (Button) findViewById(R.id.button11);
+        button11.setOnClickListener(this);
+
+        button12 = (Button) findViewById(R.id.button12);
+        button12.setOnClickListener(this);
+
+
         // add buttons to button list
         buttonList = new ArrayList<>();
         buttonList.add(button1);
@@ -78,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonList.add(button7);
         buttonList.add(button8);
         buttonList.add(button9);
+        buttonList.add(button10);
+        buttonList.add(button11);
+        buttonList.add(button12);
+
 
         // media player
         mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.jazz_music);
@@ -175,7 +192,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.button9) {
             button9.setText(gameWords[3]);
             checkForMatch(button9);
+        }else if (view.getId() == R.id.button10) {
+            button10.setText(gameWords[6]);
+            checkForMatch(button10);
+        }else if (view.getId() == R.id.button11) {
+            button11.setText(gameWords[5]);
+            checkForMatch(button11);
+        }else if (view.getId() == R.id.button12) {
+            button12.setText(gameWords[6]);
+            checkForMatch(button12);
         }
+
     }
 
     @Override
