@@ -9,9 +9,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class LevelsActivity extends AppCompatActivity {
+
+
+
     ImageButton back_bttn;
+    ImageButton level_4;
+    ImageButton level_6;
+    ImageButton level_8;
+    ImageButton level_10;
+    ImageButton level_12;
+    ImageButton level_14;
+    ImageButton level_16;
+    ImageButton level_18;
+    ImageButton level_20;
+    ImageButton level_22;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +41,17 @@ public class LevelsActivity extends AppCompatActivity {
                     Log.d("create", "clicked");
                 }            }
         });
+
+        level_4 = (ImageButton) findViewById(R.id.level_4);
+        level_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(LevelsActivity.this, GameActivity.class);
+                myIntent.putExtra("cards", 4);
+                startActivity(myIntent);
+            }
+        });
+
 
     }
 }
