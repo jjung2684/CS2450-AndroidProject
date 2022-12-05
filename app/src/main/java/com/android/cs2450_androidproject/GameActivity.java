@@ -215,19 +215,28 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void checkMatch(Button button) {
-
-
         String text = (String) button.getText();
-        if (open_List.contains(text) && bttn_List.size() > 1) {
+
+        /**
+         * open_List holds the two words to be checked
+         * bttn_List holds the current buttons to be checked
+         *
+         * checks if first clicked card has the second card's word
+         * AND ensures more than one button is clicked
+         *
+         */
+        if (open_List.contains(text) && bttn_List.size() > 1) { //Match Found
             score += 2;
             score_box.setText("Score: " + score);
-            for (int i = 0; i < bttn_List.size(); i++) {
+            for (int i = 0; i < bttn_List.size(); i++) { // Disable matched buttons
                 bttn_List.get(i).setClickable(false);
             }
+
+            // Empty Lists & increment number of matches tracker
             bttn_List.clear();
             open_List.clear();
             numMatches++;
-        } else if (bttn_List.size() > 1) {
+        } else if (bttn_List.size() > 1) {      // No Match
 
             for (int i = 0; i < bttn_List.size(); i++) {
                 rmv_List.add(bttn_List.get(i));
@@ -242,10 +251,10 @@ public class GameActivity extends AppCompatActivity {
             open_List.clear();
             try_again.setVisibility(View.VISIBLE);
 
-        } else {
+        } else {                            // First of two cards picked
             open_List.add(text);
         }
-        if (numMatches == (numCards / 2)) {
+        if (numMatches == (numCards / 2)) { // Check for win
             winCondition();
         }
 
