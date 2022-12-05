@@ -48,6 +48,27 @@ public class LevelsActivity extends AppCompatActivity {
         level_6 = (ImageButton) findViewById(R.id.level_6);
         level_6.setOnClickListener(View -> startGameLevel(6));
 
+        level_8 = (ImageButton) findViewById(R.id.level_8);
+        level_8.setOnClickListener(View -> startGameLevel(8));
+
+        level_10 = (ImageButton) findViewById(R.id.level_10);
+        level_10.setOnClickListener(View -> startGameLevel(10));
+
+        level_12 = (ImageButton) findViewById(R.id.level_12);
+        level_12.setOnClickListener(View -> startGameLevel(12));
+
+        level_14 = (ImageButton) findViewById(R.id.level_14);
+        level_14.setOnClickListener(View -> startGameLevel(14));
+
+        level_16 = (ImageButton) findViewById(R.id.level_16);
+        level_16.setOnClickListener(View -> startGameLevel(16));
+
+        level_18 = (ImageButton) findViewById(R.id.level_18);
+        level_18.setOnClickListener(View -> startGameLevel(18));
+
+        level_20 = (ImageButton) findViewById(R.id.level_20);
+        level_20.setOnClickListener(View -> startGameLevel(20));
+
 
 
 

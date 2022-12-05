@@ -8,6 +8,10 @@
     <string name="score_box">Score: </string>
     <string name="try_again">Try Again!</string>
     <string name="quit">Quit</string>
+    <string name="win_mssg">Congrats, you won!</string>
+    <string name="home_button">Home</string>
+    <string name="hs_Mssg">You had a score of:  </string>
+    <string name="score_enter">Enter Name: \t </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
