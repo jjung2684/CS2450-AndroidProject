@@ -43,15 +43,19 @@ public class LevelsActivity extends AppCompatActivity {
         });
 
         level_4 = (ImageButton) findViewById(R.id.level_4);
-        level_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(LevelsActivity.this, GameActivity.class);
-                myIntent.putExtra("cards", 4);
-                startActivity(myIntent);
-            }
-        });
+        level_4.setOnClickListener(View -> startGameLevel(4));
+
+        level_6 = (ImageButton) findViewById(R.id.level_6);
+        level_6.setOnClickListener(View -> startGameLevel(6));
 
 
+
+
+    }
+
+    private void startGameLevel(int level){
+        Intent myIntent = new Intent(LevelsActivity.this, GameActivity.class);
+        myIntent.putExtra("cards", level);
+        startActivity(myIntent);
     }
 }

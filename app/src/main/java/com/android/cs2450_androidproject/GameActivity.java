@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,13 @@ int score;
     ArrayList<String> open_List;
     ArrayList<Button> bttn_List;
     ArrayList<Button> rmv_List;
+    Button quit;
+    Button c1;
+    Button c2;
+    Button c3;
+    Button c4;
+    Button c5;
+    Button c6;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,21 +62,22 @@ int score;
 
         switch(cards){
             case 4:
-                Log.d("reachd", "hello");
+                        Log.d("reachd", "hello");
                 LayoutInflater inflater = LayoutInflater.from(GameActivity.this);
                 View inflatedLayout = inflater.inflate(R.layout.level_4_layout, null);
                 setContentView(inflatedLayout);
                 score_box = (TextView) findViewById(R.id.score_box2);
                 score_box.setText("Score: 0");
                 try_again = (Button) findViewById(R.id.try_again);
+                quit = (Button) findViewById(R.id.quit_bttn);
 
 
-                @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button c1 = (Button) findViewById(R.id.card1);
-                @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button c2 = (Button) findViewById(R.id.card2);
-                @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button c3 = (Button) findViewById(R.id.card3);
-                @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button c4 = (Button) findViewById(R.id.card4);
+                 c1 = (Button) findViewById(R.id.card1);
+                 c2 = (Button) findViewById(R.id.card2);
+                 c3 = (Button) findViewById(R.id.card3);
+                 c4 = (Button) findViewById(R.id.card4);
 
-
+                quit.setOnClickListener(View -> quitGame());
                 try_again.setOnClickListener(View -> noMatch());
 
 
@@ -114,12 +123,100 @@ int score;
                         checkMatch(c4);
                     }
                 });
+                break;
 
 
 
 
-break;
-            case 109:
+            case 6:
+                Log.d("reachd", "me");
+                LayoutInflater inflater_2 = LayoutInflater.from(GameActivity.this);
+                View inflatedLayout_2 = inflater_2.inflate(R.layout.level_6_layout, null);
+                setContentView(inflatedLayout_2);
+                score_box = (TextView) findViewById(R.id.score_box3);
+                score_box.setText("Score: 0");
+                try_again = (Button) findViewById(R.id.try_again2);
+                quit = (Button) findViewById(R.id.quit_bttn2);
+
+
+                c1 = (Button) findViewById(R.id.card1);
+                c2 = (Button) findViewById(R.id.card2);
+                c3 = (Button) findViewById(R.id.card3);
+                c4 = (Button) findViewById(R.id.card4);
+                c5 = (Button) findViewById(R.id.card5);
+                c6 = (Button) findViewById(R.id.card6);
+
+
+                quit.setOnClickListener(View -> quitGame());
+                try_again.setOnClickListener(View -> noMatch());
+
+
+
+                c1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        c1.setText(gameWords[0]);
+
+                        bttn_List.add(c1);
+
+                        checkMatch(c1);
+
+                    }
+                });
+
+                c2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        c2.setText(gameWords[6]);
+                        bttn_List.add(c2);
+                        checkMatch(c2);
+
+                    }
+                });
+
+                c3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        c3.setText(gameWords[0]);
+                        bttn_List.add(c3);
+                        checkMatch(c3);
+                    }
+                });
+
+                c4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        c4.setText(gameWords[3]);
+
+                        bttn_List.add(c4);
+
+                        checkMatch(c4);
+                    }
+                });
+
+                c5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        c5.setText(gameWords[3]);
+
+                        bttn_List.add(c5);
+
+                        checkMatch(c5);
+                    }
+                });
+
+
+                c6.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        c6.setText(gameWords[6]);
+
+                        bttn_List.add(c6);
+
+                        checkMatch(c6);
+                    }
+                });
+
                 break;
             default:
                 break;
@@ -130,6 +227,19 @@ break;
 
 
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+
+        super.onConfigurationChanged(newConfig);
+
+        if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            setContentView(R.layout.level_4_layout);
+        }
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            setContentView(R.layout.level_4_layout);
+        }
     }
 
     private void checkMatch(Button button){
@@ -171,6 +281,11 @@ break;
         }
 
 
+    }
+
+    private void quitGame(){
+        Intent myIntent = new Intent(GameActivity.this, MenuActivity.class);
+        startActivity(myIntent);
     }
 
 

@@ -7,4 +7,7 @@
     <string name="back_description">back bttn</string>
     <string name="score_box">Score: </string>
     <string name="try_again">Try Again!</string>
+    <string name="quit">Quit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
