@@ -6,4 +6,5 @@
     <string name="level_description">game level</string>
     <string name="back_description">back bttn</string>
     <string name="score_box">Score: </string>
+    <string name="try_again">Try Again!</string>
 </resources>
