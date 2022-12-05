@@ -7,16 +7,31 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Author:
+ * Spencer Barrett
+ */
+
 public class WinActivity extends AppCompatActivity {
-int usrScore;
-TextView hs;
-Button hb;
+    /**
+     * Variable declaration
+     */
+    int usrScore;
+    TextView hs;
+    Button hb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win);
+
+        /**
+         * Receive data from previous activity (GameActivity)
+         * ...receives score -> @variable - usrScore
+         */
         Intent intent = getIntent();
         usrScore = intent.getIntExtra("score", usrScore);
+
         hs = (TextView) findViewById(R.id.hsMssg);
         hs.append(" " + String.valueOf(usrScore));
 
@@ -26,7 +41,10 @@ Button hb;
 
     }
 
-    private void goHome(){
+    /**
+     * Helper method to change activity from WinActivity (this), to MenuActivity (home).
+     */
+    private void goHome() {
         Intent myIntent = new Intent(WinActivity.this, MenuActivity.class);
         startActivity(myIntent);
     }

@@ -6,41 +6,35 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * Author:
+ * Spencer Barrett
+ */
+
 public class LevelsActivity extends AppCompatActivity {
 
 
+    /**
+     * ImageButton declaration -- with the exception of back_bttn, these
+     * ImageButton serve the purpose of representing which level to choose.
+     */
+    ImageButton back_bttn, level_4, level_6, level_8, level_10,
+            level_12, level_14, level_16, level_18, level_20;
 
-    ImageButton back_bttn;
-    ImageButton level_4;
-    ImageButton level_6;
-    ImageButton level_8;
-    ImageButton level_10;
-    ImageButton level_12;
-    ImageButton level_14;
-    ImageButton level_16;
-    ImageButton level_18;
-    ImageButton level_20;
-    ImageButton level_22;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
+
         back_bttn = (ImageButton) findViewById(R.id.back_bttn);
-        back_bttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view.getId() == R.id.back_bttn) {
-                    Intent myIntent = new Intent(LevelsActivity.this, MenuActivity.class);
-                    startActivity(myIntent);
-                    Log.d("create", "clicked");
-                }            }
-        });
+        back_bttn.setOnClickListener(View -> goHome());
 
         level_4 = (ImageButton) findViewById(R.id.level_4);
         level_4.setOnClickListener(View -> startGameLevel(4));
@@ -74,6 +68,19 @@ public class LevelsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Helper method to change activity from LevelsActivity to MenuActivity
+     */
+    private void goHome(){
+        Intent myIntent = new Intent(LevelsActivity.this, MenuActivity.class);
+        startActivity(myIntent);
+    }
+
+    /**
+     * Helper method to change activity from LevelsActivity to GameActivity
+     * @param level -- The level represents the amount of cards to display i.e.
+     *              which activity_layout.xml to display
+     */
     private void startGameLevel(int level){
         Intent myIntent = new Intent(LevelsActivity.this, GameActivity.class);
         myIntent.putExtra("cards", level);
