@@ -9,16 +9,16 @@ import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.cs2450_androidproject.game.WinActivity;
 
 import java.util.ArrayList;
 
@@ -263,6 +263,7 @@ public class GameActivity extends AppCompatActivity {
     private void winCondition() {
         Intent myIntent = new Intent(GameActivity.this, WinActivity.class);
         myIntent.putExtra("score", score);
+        myIntent.putExtra("numberOfCards", numCards);
         stopService(music);
         startActivity(myIntent);
 
@@ -380,9 +381,7 @@ public class GameActivity extends AppCompatActivity {
     private void disableMusic() {
 
         stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
-        Toast.makeText(this, "Disabling Background Music", Toast.LENGTH_SHORT).show();
-
-
+        Toast.makeText(this, "Stopping Background Music", Toast.LENGTH_SHORT).show();
     }
 
     @Override
