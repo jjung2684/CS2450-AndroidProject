@@ -81,12 +81,7 @@ public class GameActivity extends AppCompatActivity {
          * @param cards -- the number of cards to display
          */
         switch (cards) {
-<<<<<<< Updated upstream
             case 4:
-=======
-            case 4: // 4 Cards
-                // Log.d("Reached 4 Card Mode", "Hello");
->>>>>>> Stashed changes
                 LayoutInflater inflater = LayoutInflater.from(GameActivity.this);
                 View inflatedLayout = inflater.inflate(R.layout.level_4_layout, null);
                 setContentView(inflatedLayout);
@@ -268,7 +263,6 @@ public class GameActivity extends AppCompatActivity {
     private void winCondition() {
         Intent myIntent = new Intent(GameActivity.this, WinActivity.class);
         myIntent.putExtra("score", score);
-        myIntent.putExtra("numberOfCards", numCards);
         stopService(music);
         startActivity(myIntent);
 
