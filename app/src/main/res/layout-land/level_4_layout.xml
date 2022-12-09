@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/try_again"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/l4portrait"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/l4portrait"
         android:layout_width="fill_parent"
         android:layout_height="631dp"
         android:layout_marginStart="8dp"

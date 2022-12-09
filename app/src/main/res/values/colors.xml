@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="foam">#00F19A</color>
     <color name="foam_dark">#01BB78</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
