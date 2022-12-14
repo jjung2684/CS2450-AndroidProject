@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/winMssg"
-        android:layout_width="0dp"
-        android:layout_height="152dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="@string/win_mssg"
@@ -24,9 +24,7 @@
         android:id="@+id/homeBttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="98dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/home_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,25 +33,25 @@
     <TextView
         android:id="@+id/hsMssg"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/hs_Mssg"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winMssg" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/name_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginEnd="107dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/score_enter"
         app:layout_constraintBottom_toTopOf="@+id/homeBttn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hsMssg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

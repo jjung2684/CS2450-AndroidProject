@@ -4,6 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScoresActivity">
+    tools:context=".ScoresActivity"
+    android:background="@drawable/scores_background">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/scores_label" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="326dp"
+        android:layout_marginTop="105dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner"
+                android:gravity="center"
+                android:text="TextView" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

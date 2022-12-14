@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/try_again10"
+        android:id="@+id/try_again12"
         android:layout_width="130dp"
         android:layout_height="48dp"
         android:layout_marginTop="22dp"
@@ -16,10 +16,10 @@
         android:text="@string/try_again"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score_lvl8" />
+        app:layout_constraintTop_toBottomOf="@+id/score_lvl12" />
 
     <Button
-        android:id="@+id/reset_lvl8"
+        android:id="@+id/reset_lvl12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -28,16 +28,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/quit_lvl8"
+        android:id="@+id/quit_lvl12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/quit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reset_lvl8" />
+        app:layout_constraintTop_toBottomOf="@+id/reset_lvl12" />
 
     <TextView
-        android:id="@+id/score_lvl8"
+        android:id="@+id/score_lvl12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -51,16 +51,14 @@
     <LinearLayout
         android:id="@+id/l4portrait"
         android:layout_width="wrap_content"
-        android:layout_height="589dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="239dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="4"
+        android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/try_again10">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,7 +67,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="6">
 
             <com.android.cs2450_androidproject.CardButton
                 android:id="@+id/i_card1"
@@ -106,18 +104,6 @@
                 android:cropToPadding="false"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/card_back" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
 
             <com.android.cs2450_androidproject.CardButton
                 android:id="@+id/i_card4"
@@ -164,7 +150,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="6">
 
 
             <com.android.cs2450_androidproject.CardButton
@@ -202,18 +188,6 @@
                 android:cropToPadding="false"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/card_back" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
 
             <com.android.cs2450_androidproject.CardButton
                 android:id="@+id/i_card10"

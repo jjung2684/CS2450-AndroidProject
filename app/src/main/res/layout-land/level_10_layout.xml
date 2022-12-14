@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/landscape">
 
 
     <Button
-        android:id="@+id/try_again6"
+        android:id="@+id/try_again10"
         android:layout_width="130dp"
         android:layout_height="48dp"
         android:layout_marginTop="22dp"
@@ -50,17 +50,15 @@
 
     <LinearLayout
         android:id="@+id/l4portrait"
-        android:layout_width="411dp"
-        android:layout_height="589dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="239dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="4"
+        android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/try_again6">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,7 +67,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="5">
 
             <com.android.cs2450_androidproject.CardButton
                 android:id="@+id/i_card1"
@@ -107,18 +105,6 @@
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/card_back" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-
             <com.android.cs2450_androidproject.CardButton
                 android:id="@+id/i_card4"
                 android:layout_width="wrap_content"
@@ -130,11 +116,6 @@
                 android:cropToPadding="false"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/card_back" />
-
-            <Space
-                android:layout_width="59dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
 
             <com.android.cs2450_androidproject.CardButton
                 android:id="@+id/i_card5"
@@ -172,37 +153,8 @@
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/card_back" />
 
-            <Space
-                android:layout_width="59dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <com.android.cs2450_androidproject.CardButton
-                android:id="@+id/i_card7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:adjustViewBounds="true"
-                android:background="@color/transparent"
-                android:contentDescription="three"
-                android:cropToPadding="false"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/card_back" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-
-            <com.android.cs2450_androidproject.CardButton
-                android:id="@+id/i_card8"
+                android:id="@+id/i_card10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -226,7 +178,19 @@
                 app:srcCompat="@drawable/card_back" />
 
             <com.android.cs2450_androidproject.CardButton
-                android:id="@+id/i_card10"
+                android:id="@+id/i_card8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:adjustViewBounds="true"
+                android:background="@color/transparent"
+                android:contentDescription="three"
+                android:cropToPadding="false"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/card_back" />
+
+            <com.android.cs2450_androidproject.CardButton
+                android:id="@+id/i_card7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
