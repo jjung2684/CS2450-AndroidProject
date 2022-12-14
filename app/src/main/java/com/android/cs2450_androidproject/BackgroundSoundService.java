@@ -78,7 +78,8 @@ public class BackgroundSoundService extends Service implements MediaPlayer.OnPre
     @Override
     public void onDestroy() {
         stopSelf();     // Stop service when destroyed
-        mediaPlayer.stop();
+        if(mediaPlayer!=null)
+            mediaPlayer.stop();
     }
 
 
