@@ -458,8 +458,8 @@ public class GameActivity extends AppCompatActivity {
                 cb8 = findViewById(R.id.i_card8);
                 cb9 = findViewById(R.id.i_card9);
                 cb10 = findViewById(R.id.i_card10);
-                cb11 = findViewById(R.id.i_card10);
-                cb12 = findViewById(R.id.i_card10);
+                cb11 = findViewById(R.id.i_card11);
+                cb12 = findViewById(R.id.i_card12);
 
 
                 if (!reloaded) {
