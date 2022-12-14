@@ -331,24 +331,24 @@ public class GameActivity extends AppCompatActivity {
                 cb6 = findViewById(R.id.i_card6);
                 cb7 = findViewById(R.id.i_card7);
                 cb8 = findViewById(R.id.i_card8);
-                cb8 = findViewById(R.id.i_card9);
-                cb8 = findViewById(R.id.i_card10);
+                cb9 = findViewById(R.id.i_card9);
+                cb10 = findViewById(R.id.i_card10);
 
                 if (!reloaded) {
-                    cb1.setCardNum(3);
-                    cb1.setCardDrawable(R.drawable.card_3);
+                    cb1.setCardNum(11);
+                    cb1.setCardDrawable(R.drawable.card_queen);
                     cbList.add(cb1);
 
-                    cb2.setCardNum(9);
-                    cb2.setCardDrawable(R.drawable.card_9);
+                    cb2.setCardNum(3);
+                    cb2.setCardDrawable(R.drawable.card_3);
                     cbList.add(cb2);
 
                     cb3.setCardNum(9);
                     cb3.setCardDrawable(R.drawable.card_9);
                     cbList.add(cb3);
 
-                    cb4.setCardNum(12);
-                    cb4.setCardDrawable(R.drawable.card_king);
+                    cb4.setCardNum(1);
+                    cb4.setCardDrawable(R.drawable.card_a);
                     cbList.add(cb4);
 
                     cb5.setCardNum(11);
@@ -359,16 +359,16 @@ public class GameActivity extends AppCompatActivity {
                     cb6.setCardDrawable(R.drawable.card_3);
                     cbList.add(cb6);
 
-                    cb7.setCardNum(11);
-                    cb7.setCardDrawable(R.drawable.card_queen);
+                    cb7.setCardNum(9);
+                    cb7.setCardDrawable(R.drawable.card_9);
                     cbList.add(cb7);
 
                     cb8.setCardNum(12);
                     cb8.setCardDrawable(R.drawable.card_king);
                     cbList.add(cb8);
 
-                    cb9.setCardNum(12);
-                    cb9.setCardDrawable(R.drawable.card_king);
+                    cb9.setCardNum(1);
+                    cb9.setCardDrawable(R.drawable.card_a);
                     cbList.add(cb9);
 
                     cb10.setCardNum(12);
@@ -386,6 +386,10 @@ public class GameActivity extends AppCompatActivity {
                     reinitializeCard(cb6, cbList.get(5));
                     reinitializeCard(cb7, cbList.get(6));
                     reinitializeCard(cb8, cbList.get(7));
+                    reinitializeCard(cb9, cbList.get(8));
+                    reinitializeCard(cb10, cbList.get(9));
+                    cbList.clear();
+                    cbList.addAll(reList);
 
                     if (tryVis) {
                         try_again.setVisibility(View.VISIBLE);
@@ -452,7 +456,7 @@ public class GameActivity extends AppCompatActivity {
             score_box.setText(getString(R.string.score_box, score));
             for (int i = 0; i < cbActive.size(); i++) { // Disable matched buttons
                 CardButton tmp = cbActive.get(i);
-                tmp.setClickable(false);
+                tmp.setEnabled(false);
                 tmp.setMatched(true);
 
             }
@@ -477,7 +481,7 @@ public class GameActivity extends AppCompatActivity {
             for (int i = 0; i < cbList.size(); i++) {
                 CardButton tmp = cbList.get(i);
                 if (!tmp.getIsMatched())
-                    tmp.setClickable(false);
+                    tmp.setEnabled(false);
 
             }
             noMatchTst.show();
@@ -520,7 +524,7 @@ public class GameActivity extends AppCompatActivity {
             for (int i = 0; i < cbList.size(); i++) {
                 CardButton tmp = cbList.get(i);
                 if (!tmp.getIsMatched()) {
-                    tmp.setClickable(true);
+                    tmp.setEnabled(true);
                 }
             }
             toRemove.clear();
@@ -562,10 +566,14 @@ public class GameActivity extends AppCompatActivity {
         cb.setCardNum(tmp.getCardNum());
         cb.setMatched(tmp.getIsMatched());
         cb.setCardDrawable(tmp.getCardDrawable());
+        if(!tmp.isEnabled()){
+            cb.setEnabled(false);
+        }
         if (!cb.isFlipped()) {
-            cb.setClickable(false);
+
         } else {
             cb.setImageResource(tmp.getCardDrawable());
+
             if (!cb.getIsMatched())
                 toRemove.add(cb);
 
