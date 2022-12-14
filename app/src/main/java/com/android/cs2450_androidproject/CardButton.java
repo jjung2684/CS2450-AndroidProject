@@ -1,10 +1,14 @@
 package com.android.cs2450_androidproject;
 
+import static java.sql.Types.NULL;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
 
-public class CardButton extends androidx.appcompat.widget.AppCompatImageButton {
+import java.io.Serializable;
+
+public class CardButton extends androidx.appcompat.widget.AppCompatImageButton implements Serializable {
     private int cardNum;
     private boolean isFlipped = false;
     int cardDrawable;
@@ -21,6 +25,12 @@ public class CardButton extends androidx.appcompat.widget.AppCompatImageButton {
 
     public CardButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+
+    }
+
+    public void setResource(){
+        if(cardDrawable != NULL)
+            this.setImageResource(cardDrawable);
     }
 
     public void setMatched(boolean matched){
