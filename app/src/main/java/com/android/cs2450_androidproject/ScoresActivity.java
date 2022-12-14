@@ -15,6 +15,11 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/**
+ * Purpose of this activity is to display highscores from games played
+ * @author Spencer Barrett
+ */
 public class ScoresActivity extends AppCompatActivity {
     protected final ScoreJSONSerializer mSerializer= new ScoreJSONSerializer(this, "scores.json");
     TextView lvl4, lvl6, lvl8, lvl10, lvl12, lvl14, lvl16, lvl18, lvl20;
