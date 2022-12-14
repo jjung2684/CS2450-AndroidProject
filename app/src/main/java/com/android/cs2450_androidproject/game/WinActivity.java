@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,8 +17,8 @@ import com.android.cs2450_androidproject.R;
 import java.util.ArrayList;
 
 /**
- * Author:
- * Spencer Barrett
+ *
+ * @author Spencer Barrett
  */
 
 public class WinActivity extends AppCompatActivity {
@@ -32,6 +31,7 @@ public class WinActivity extends AppCompatActivity {
     EditText playerNameField;
     TextView highScoreView;
     Button homeButton;
+    private boolean firstT = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +39,24 @@ public class WinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_win);
         mScoreMaker = new ScoreMaker(this);
 
-        /**
-         * Receive data from previous activity (GameActivity)
-         * ...receives score -> @variable - usrScore
+        /*
+          Receive data from previous activity (GameActivity)
+          ...receives score -> @variable - usrScore
          */
         Intent intent = getIntent();
         userScore = intent.getIntExtra("score", userScore);
         numberOfCards = intent.getIntExtra("numberOfCards", numberOfCards);
 
-        playerNameField = findViewById(R.id.editTextTextPersonName);
+        playerNameField = findViewById(R.id.name_field);
+
 
         highScoreView = findViewById(R.id.hsMssg);
         highScoreView.append(" " + userScore);
 
         homeButton = (Button) findViewById(R.id.homeBttn);
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // goHome();
-                saveScoreAndGoHome(playerNameField.getText().toString(), userScore, numberOfCards);
-            }
-        });
+        homeButton.setOnClickListener(View ->  saveScoreAndGoHome(playerNameField.getText().toString(), userScore, numberOfCards));
     }
+
 
     /**
      * Helper method to change activity from WinActivity (this), to MenuActivity (home).
@@ -85,21 +81,21 @@ public class WinActivity extends AppCompatActivity {
 
     /**
      * Validate the name and fix it if too long
-     * @param nameToValidate
-     * @return
+     * @param nameToValidate - string name passed to retrieve
+     * @return validated name
      */
     private String validateString(String nameToValidate) {
-        String fixedName = null;
+        StringBuilder fixedName = new StringBuilder();
         if (nameToValidate.length() > 10) {
             for (int i = 0; i < 10; i++) {
-                fixedName = fixedName + nameToValidate.charAt(i);
+                fixedName.append(nameToValidate.charAt(i));
             }
             Toast.makeText(this, "Name was saved as " + fixedName, Toast.LENGTH_SHORT).show();
             // Toast.makeText(this, "Card game with " + level + " not available", Toast.LENGTH_SHORT).show();
         } else {
-            fixedName = nameToValidate;
+            fixedName = new StringBuilder(nameToValidate);
         }
-        return fixedName;
+        return fixedName.toString();
     }
 
     /**
