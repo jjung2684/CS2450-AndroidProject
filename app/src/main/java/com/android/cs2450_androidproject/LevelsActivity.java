@@ -1,12 +1,14 @@
 package com.android.cs2450_androidproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -24,7 +26,7 @@ public class LevelsActivity extends AppCompatActivity {
      * ImageButton declaration -- with the exception of back_bttn, these
      * ImageButton serve the purpose of representing which level to choose.
      */
-    ImageButton back_bttn, level_4, level_6, level_8, level_10,
+    ImageButton level_4, level_6, level_8, level_10,
             level_12, level_14, level_16, level_18, level_20;
 
 
@@ -32,9 +34,6 @@ public class LevelsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
-
-        back_bttn = (ImageButton) findViewById(R.id.back_bttn);
-        back_bttn.setOnClickListener(View -> goHome());
 
         level_4 = (ImageButton) findViewById(R.id.level_4);
         level_4.setOnClickListener(View -> startGameLevel(4));
@@ -68,13 +67,21 @@ public class LevelsActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Helper method to change activity from LevelsActivity to MenuActivity
-     */
-    private void goHome(){
-        Intent myIntent = new Intent(LevelsActivity.this, MenuActivity.class);
-        startActivity(myIntent);
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case android.R.id.home:
+                if(NavUtils.getParentActivityName(this) != null)
+                    NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
+
 
     /**
      * Helper method to change activity from LevelsActivity to GameActivity
